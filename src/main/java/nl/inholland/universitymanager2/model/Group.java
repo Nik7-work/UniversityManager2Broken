@@ -1,6 +1,7 @@
 package nl.inholland.universitymanager2.model;
 
 public class Group {
+
     private String name;
     private Teacher coach;
 
@@ -28,6 +29,4 @@ public class Group {
     public String toString() {
         return name;
     }
-
-
 }

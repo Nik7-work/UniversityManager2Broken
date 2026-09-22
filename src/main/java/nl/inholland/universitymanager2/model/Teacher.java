@@ -15,4 +15,9 @@ public class Teacher extends Person {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return getFirstName() + " " + getLastName();
+    }
 }

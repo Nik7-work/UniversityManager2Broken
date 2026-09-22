@@ -21,29 +21,59 @@ public class MainController implements Initializable {
     Database database;
 
     public void loadScene(String name, Object controller) {
+
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource(name));
+
+            FXMLLoader fxmlLoader =
+                    new FXMLLoader(
+                            Application.class.getResource(name)
+                    );
+
             fxmlLoader.setController(controller);
-            Scene scene = new Scene(fxmlLoader.load());
-            if (layout.getChildren().size() > 1)
+
+            Scene scene =
+                    new Scene(fxmlLoader.load());
+
+            if (layout.getChildren().size() > 1) {
                 layout.getChildren().remove(1);
-            layout.getChildren().add(scene.getRoot());
+            }
+
+            layout.getChildren().add(
+                    scene.getRoot()
+            );
+
         } catch (IOException e) {
+
             throw new RuntimeException(e);
         }
     }
 
     public void OnStudentButtonClick(ActionEvent event) {
-        loadScene("student-list-view.fxml", new StudentListController(database));
+
+        loadScene(
+                "student-list-view.fxml",
+                new StudentListController(database)
+        );
     }
 
     public void OnTeacherButtonClick(ActionEvent event) {
-        loadScene("teacher-list-view.fxml", new TeacherListController(database));
+
+        loadScene(
+                "teacher-list-view.fxml",
+                new TeacherListController(database)
+        );
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(
+            URL url,
+            ResourceBundle resourceBundle) {
+
         database = new Database();
-        loadScene("student-list-view.fxml", new StudentListController(database));
+
+        loadScene(
+                "student-list-view.fxml",
+                new StudentListController(database)
+        );
     }
 }

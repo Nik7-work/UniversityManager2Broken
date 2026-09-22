@@ -23,9 +23,14 @@ public class TeacherListController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(
+            URL url,
+            ResourceBundle resourceBundle) {
 
-        ObservableList<Teacher> teachers = FXCollections.observableArrayList(database.getTeachers());
+        ObservableList<Teacher> teachers =
+                FXCollections.observableArrayList(
+                        database.getTeachers()
+                );
 
         teacherTableView.setItems(teachers);
     }

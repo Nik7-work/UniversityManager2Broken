@@ -1,11 +1,11 @@
 package nl.inholland.universitymanager2.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Student extends Person {
     private Group group;
-    private List<Grade> grades = new ArrayList<>();
+    private ObservableList<Grade> grades = FXCollections.observableArrayList();
 
     public Student(String firstName, String lastName, String email, Group group) {
         super(firstName, lastName, email);
@@ -20,7 +20,7 @@ public class Student extends Person {
         this.group = group;
     }
 
-    public List<Grade> getGrades() {
+    public ObservableList<Grade> getGrades() {
         return grades;
     }
 }

@@ -6,7 +6,7 @@ public class Grade {
 
     public Grade(String course, double grade) {
         this.course = course;
-        this.grade = grade;
+        setGrade(grade);
     }
 
     public String getCourse() {
@@ -22,6 +22,9 @@ public class Grade {
     }
 
     public void setGrade(double grade) {
+        if (grade < 1 || grade > 10) {
+            throw new InvalidGradeException("Grade must be between 1 and 10 (got " + grade + ")");
+        }
         this.grade = grade;
     }
 }
